@@ -1,6 +1,7 @@
 package com.cncnc.main;
 
 
+import com.cncnc.controller.UserController;
 import com.cncnc.service.UserDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,7 +16,7 @@ public class TestMain {
 
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"application.xml"});
 
-        UserDao userDao = (UserDao) context.getBean("userDao");
+        /*UserDao userDao = (UserDao) context.getBean("userDao");
 
         userDao.addUser();
 
@@ -23,6 +24,9 @@ public class TestMain {
 
         userDao.findUser();
 
-        userDao.updateUser();
+        userDao.updateUser();*/
+
+        UserController userController = (UserController)context.getBean("userController");
+        userController.testAopTime();
     }
 }
