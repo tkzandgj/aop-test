@@ -22,34 +22,34 @@ public class AspectConfig {
      * 匹配UserDaoImpl类及其子类中所有方法   @Before("within(com.cncnc.serviceImpl.UserDaoImpl+)")
      * 匹配所有实现UserDao接口的类的所有方法  @Before("within(com.cncnc.service.UserDao+)")
      */
-    @Before("within(com.cncnc.service.UserDao+)")
+    @Before("within(com.cncnc.service.UserService+)")
     public void before(){
         System.out.println("-----------前置通知-----------");
     }
 
 
 
-    @AfterReturning(value = "execution(* com.cncnc.service.UserDao.addUser(..))", returning = "returnValue")
+    @AfterReturning(value = "execution(* com.cncnc.service.UserService.addUser(..))", returning = "returnValue")
     public void afterReturning(Object returnValue){
         System.out.println("----------后置通知---------" + returnValue);
     }
 
 
 
-    @AfterThrowing(value = "execution(* com.cncnc.service.UserDao.addUser(..))", throwing = "e")
+    @AfterThrowing(value = "execution(* com.cncnc.service.UserService.addUser(..))", throwing = "e")
     public void afterThrowable(Throwable e){
         System.out.println("---------出现异常--------" + e.getMessage());
     }
 
 
 
-    @After("execution(* com.cncnc.service.UserDao.addUser(..))")
+    @After("execution(* com.cncnc.service.UserService.addUser(..))")
     public void after(){
         System.out.println("-----------最终通知----------");
     }
 
 
-    @Pointcut("execution(* com.cncnc.service.UserDao.addUser(..))")
+    @Pointcut("execution(* com.cncnc.service.UserService.addUser(..))")
     private void myPonitCut(){}
 
 
