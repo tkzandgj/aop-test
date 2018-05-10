@@ -12,16 +12,16 @@
     <aop:aspectj-autoproxy/>
 
 
-    <!--<bean id="userDao" class="com.cncnc.serviceImpl.UserDaoImpl"/>
+    <!--<bean id="userService" class="com.cncnc.serviceImpl.UserServiceImpl"/>
 
     <bean id="aspectConfig" class="com.cncnc.config.AspectConfig"/>
 
     <bean id="aspectXml" class="com.cncnc.config.AspectXml"/>
 
     <aop:config>
-        <aop:pointcut id="pointcut" expression="execution(* com.cncnc.service.UserDao.addUser(..))"/>
+        <aop:pointcut id="pointcut" expression="execution(* com.cncnc.service.UserService.addUser(..))"/>
 
-        <aop:pointcut id="deletePointCut" expression="execution(* com.cncnc.service.UserDao.deleteUser(..))"/>
+        <aop:pointcut id="deletePointCut" expression="execution(* com.cncnc.service.UserService.deleteUser(..))"/>
 
         <aop:aspect ref="aspectXml" order="0">
             <aop:before method="before" pointcut-ref="pointcut"/>
@@ -32,11 +32,18 @@
 
             <aop:after method="after" pointcut-ref="pointcut"/>
         </aop:aspect>
-    </aop:config>-->
+    </aop:config>
 
 
     <bean id="userController" class="com.cncnc.controller.UserController"/>
 
-    <bean id="timerAspect" class="com.cncnc.config.TimerAspect"/>
+    <bean id="timerAspect" class="com.cncnc.config.TimerAspect"/>-->
+
+
+    <bean id="userController" class="com.cncnc.controller.UserController"/>
+
+    <bean id="userService" class="com.cncnc.serviceImpl.UserServiceImpl"/>
+
+    <bean id="operationLogAspect" class="com.cncnc.config.OperationLogAspect"/>
 
 </beans>
