@@ -2,7 +2,8 @@ package com.cncnc.main;
 
 
 import com.cncnc.controller.UserController;
-import com.cncnc.service.UserDao;
+import com.cncnc.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -27,6 +28,12 @@ public class TestMain {
         userDao.updateUser();*/
 
         UserController userController = (UserController)context.getBean("userController");
-        userController.testAopTime();
+
+        userController.testAopOperationLog();
+
+
+        UserService userService = (UserService) context.getBean("userService");
+
+        userService.addUser();
     }
 }
